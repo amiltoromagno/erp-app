@@ -1,0 +1,3 @@
+interface DropdownProps {
+  isOpen: boolean
+}

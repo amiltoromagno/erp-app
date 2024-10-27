@@ -31,9 +31,9 @@ export default function RootLayout ({
         className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-screen-2xl h-screen mx-auto flex`}
       >
         <SideNavigation />
-        <div className='flex flex-1 flex-col'>
+        <div className='flex flex-1 flex-col p-3'>
           <Header />
-          <main className='p-7'>{children}</main>
+          <main>{children}</main>
         </div>
       </body>
     </html>
