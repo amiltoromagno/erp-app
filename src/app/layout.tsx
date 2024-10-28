@@ -33,7 +33,7 @@ export default function RootLayout ({
         <SideNavigation />
         <div className='flex flex-1 flex-col p-3'>
           <Header />
-          <main>{children}</main>
+          <main className='pt-3'>{children}</main>
         </div>
       </body>
     </html>
