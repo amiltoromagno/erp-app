@@ -24,7 +24,7 @@ const Header = () => {
   }
 
   return (
-    <div className='px-3 h-16 flex items-center justify-between bg-white bg-opacity-10 rounded'>
+    <div className='px-3 h-16 flex items-center justify-between bg-white bg-opacity-10 rounded-2xl'>
       <div>
         <div className='text-md font-bold'>Welcome, Test User!</div>
         <div className='text-xxs'>Today is {currentDate}</div>

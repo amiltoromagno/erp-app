@@ -12,7 +12,7 @@ const SmallDashboardCard = (props: SmallDashboardData) => {
   const ArrowIcon = props.lastQuarter && getIcon(props.lastQuarter)
 
   return (
-    <div className='h-40 w-[24%] rounded-2xl py-6 px-4 flex bg-white bg-opacity-10'>
+    <div className='h-40 flex-grow basis-1/4 rounded-2xl py-6 px-4 flex bg-white bg-opacity-10'>
       <div className='w-[70%] flex flex-col'>
         <div className='h-[65%] flex flex-col justify-around'>
           <div className='text-4xl'>{props.value}</div>
