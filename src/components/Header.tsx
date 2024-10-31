@@ -8,7 +8,7 @@ import Dropdown from './Dropdown'
 const Header = () => {
   const currentDate: string = format(new Date(), 'dd/MM/yyyy')
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const dropdownRef: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null)
+  const dropdownRef: React.RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside)
