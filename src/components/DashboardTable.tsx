@@ -2,7 +2,7 @@ import React from 'react'
 
 const DashboardTable = () => {
   return (
-    <div></div>
+    <div>DashboardTable</div>
   )
 }
 
