@@ -1,49 +1,18 @@
 import React from 'react'
-import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid'
+import { DataGrid } from '@mui/x-data-grid'
+import { DashboardProps } from '@/interfaces/datagrid.interface'
 
-const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', flex: 0.5, minWidth: 70 },
-  { field: 'firstName', headerName: 'First name', flex: 2, minWidth: 130 },
-  { field: 'lastName', headerName: 'Last name', flex: 2, minWidth: 130 },
-  { field: 'age', headerName: 'Age', flex: 0.5, minWidth: 90 }
-]
-
-const rows: GridRowsProp = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: null, firstName: 'Melisandre', age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-  { id: 10, lastName: 'Targaryen', firstName: 'Viserys', age: 37 },
-  { id: 11, lastName: 'Stark', firstName: 'Sansa', age: 22 },
-  { id: 12, lastName: 'Stark', firstName: 'Robb', age: 24 },
-  { id: 13, lastName: 'Targaryen', firstName: 'Rhaegar', age: 30 },
-  { id: 14, lastName: 'Baratheon', firstName: 'Robert', age: 50 },
-  { id: 15, lastName: 'Greyjoy', firstName: 'Theon', age: 26 },
-  { id: 16, lastName: 'Tyrell', firstName: 'Margaery', age: 24 },
-  { id: 17, lastName: 'Martell', firstName: 'Oberyn', age: 43 },
-  { id: 18, lastName: 'Arryn', firstName: 'Lysa', age: 38 },
-  { id: 19, lastName: 'Tully', firstName: 'Catelyn', age: 44 },
-  { id: 20, lastName: 'Tully', firstName: 'Edmure', age: 30 },
-]
-
-const DashboardTable = () => {
+const DashboardTable = (props: DashboardProps) => {
   return (
-    <div className='h-full w-full border rounded'>
+    <div className='h-full w-full'>
       <DataGrid
         initialState={{
           pagination: { paginationModel: { pageSize: 10 } }
         }}
-        columns={columns}
-        rows={rows}
+        columns={props.dashboardData?.columns || []}
+        rows={props.dashboardData?.rows || []}
         rowHeight={30}
-        pageSizeOptions={[10, 15, 20]}
-        pagination
-        checkboxSelection
+        checkboxSelection={props.dashboardConfigs?.checkboxSelection || false}
         sx={{
           color: 'white',
           '& .MuiDataGrid-cell, & .MuiDataGrid-columnHeaderTitle': {
@@ -56,7 +25,8 @@ const DashboardTable = () => {
             color: 'white'
           },
           '& .MuiTablePagination-actions .MuiIconButton-root': {
-            color: 'white'
+            color: 'white',
+            height: '30px'
           },
           '& .MuiDataGrid-columnHeader': {
             backgroundColor: '#232323',
@@ -66,6 +36,13 @@ const DashboardTable = () => {
           },
           '& .MuiDataGrid-filler': {
             backgroundColor: '#232323'
+          },
+          '& .MuiToolbar-root': {
+            minHeight: '30px',
+            height: '30px'
+          },
+          '& .MuiDataGrid-footerContainer': {
+            minHeight: '30px'
           },
           '&, [class^=MuiDataGrid]': {
             border: 'none'
